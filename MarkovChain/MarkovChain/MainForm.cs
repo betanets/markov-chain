@@ -15,6 +15,7 @@ namespace MarkovChain
         
         private int stepsCount;
         private int experimentsCount;
+        private bool isEndStatesOnly;
 
         private int startStateNumberHolder;
         private int[] stateArrayHolder;
@@ -62,6 +63,9 @@ namespace MarkovChain
             else if (radioButton_s4.Checked) startStateNumberHolder = 4;
             else startStateNumberHolder = 5;
 
+            if (checkBox_end_states_only.Checked) isEndStatesOnly = true;
+            else isEndStatesOnly = false;
+
             for (int i = 0; i < stateArrayHolder.Length; i++) stateArrayHolder[i] = 0;
 
             int currentStateNumber = startStateNumberHolder;
@@ -70,15 +74,17 @@ namespace MarkovChain
             {
                 //Во время начала каждого из экспериментов возвращаемся в стартовую позицию
                 currentStateNumber = startStateNumberHolder;
-                //stateArrayHolder[currentStateNumber - 1]++;
                 for (int j = 0; j < stepsCount; j++)
                 {
                     currentStateNumber = countNextState(random.Next(1, 100), currentStateNumber);
-                    stateArrayHolder[currentStateNumber - 1]++;
+                    if (!isEndStatesOnly || (isEndStatesOnly && (j == stepsCount - 1)))
+                    {
+                        stateArrayHolder[currentStateNumber - 1]++;
+                    }
                 }
             }
 
-            int statesCount = experimentsCount * stepsCount;
+            int statesCount = isEndStatesOnly ? experimentsCount : experimentsCount * stepsCount;
 
             List<double> resultChances = new List<double>();
             for(int i = 0; i < stateArrayHolder.Length; i++)

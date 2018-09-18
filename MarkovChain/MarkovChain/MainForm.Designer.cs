@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_settings = new System.Windows.Forms.GroupBox();
             this.button_count = new System.Windows.Forms.Button();
             this.button_load_matrix = new System.Windows.Forms.Button();
@@ -45,6 +45,7 @@
             this.numericUpDown_steps = new System.Windows.Forms.NumericUpDown();
             this.label_steps = new System.Windows.Forms.Label();
             this.chart_results = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.checkBox_end_states_only = new System.Windows.Forms.CheckBox();
             this.groupBox_settings.SuspendLayout();
             this.groupBox_init_state.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_experiments)).BeginInit();
@@ -54,6 +55,7 @@
             // 
             // groupBox_settings
             // 
+            this.groupBox_settings.Controls.Add(this.checkBox_end_states_only);
             this.groupBox_settings.Controls.Add(this.button_count);
             this.groupBox_settings.Controls.Add(this.button_load_matrix);
             this.groupBox_settings.Controls.Add(this.groupBox_init_state);
@@ -219,23 +221,33 @@
             // 
             // chart_results
             // 
-            chartArea2.AxisY.Maximum = 1D;
-            chartArea2.AxisY.Minimum = 0D;
-            chartArea2.Name = "ChartArea1";
-            this.chart_results.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_results.Legends.Add(legend2);
+            chartArea1.AxisY.Maximum = 1D;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.Name = "ChartArea1";
+            this.chart_results.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_results.Legends.Add(legend1);
             this.chart_results.Location = new System.Drawing.Point(12, 12);
             this.chart_results.Name = "chart_results";
             this.chart_results.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series2.ChartArea = "ChartArea1";
-            series2.IsValueShownAsLabel = true;
-            series2.Legend = "Legend1";
-            series2.Name = "Вероятности";
-            this.chart_results.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Вероятности";
+            this.chart_results.Series.Add(series1);
             this.chart_results.Size = new System.Drawing.Size(977, 623);
             this.chart_results.TabIndex = 1;
-            this.chart_results.Text = "chart1";
+            this.chart_results.Text = "chart_results";
+            // 
+            // checkBox_end_states_only
+            // 
+            this.checkBox_end_states_only.AutoSize = true;
+            this.checkBox_end_states_only.Location = new System.Drawing.Point(11, 259);
+            this.checkBox_end_states_only.Name = "checkBox_end_states_only";
+            this.checkBox_end_states_only.Size = new System.Drawing.Size(171, 17);
+            this.checkBox_end_states_only.TabIndex = 9;
+            this.checkBox_end_states_only.Text = "Только конечные состояния";
+            this.checkBox_end_states_only.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -277,6 +289,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_results;
         private System.Windows.Forms.Button button_count;
         private System.Windows.Forms.Button button_load_matrix;
+        private System.Windows.Forms.CheckBox checkBox_end_states_only;
     }
 }
 
